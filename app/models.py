@@ -50,6 +50,7 @@ class Articles(Base):
     #     return f"Article(id={self.id!r}, article_heading={self.article_heading!r}, article_body={self.article_body!r}, author_id={self.author_id!r}, author={self.author!r})"
     
 def create_table():
+    print('Создаём таблицы')
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
 

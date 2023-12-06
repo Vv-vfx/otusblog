@@ -8,4 +8,4 @@ def test_db():
     yield
     print('Этот блок будет выполнен после окончания работы тестов')
     # drop_DB()
-    # test_base.drop_db()
+   
