@@ -17,7 +17,7 @@ def fill_db_fakes_info():
         print('*' * 100)
 
 
-def get_all_articles_by_author_login(author_login):
+def get_all_articles_by_author_login_v1(author_login):
 
     session = Session(engine)
 
@@ -30,6 +30,22 @@ def get_all_articles_by_author_login(author_login):
         for article in author.articles:
             print(f'Заголовок статьи: "{article.article_heading}"')
             print(f'Тело статьи: "{article.article_body}"')
+
+def get_all_articles_by_author_login_v2(author_login):
+
+    session = Session(engine)
+
+    stmt = session.query(Author).filter(Author.login==author_login).all()
+
+    print(f"Все статьи для автора с логином {author_login}")
+    
+    for author in stmt:
+        for article in author.articles:
+            print(f'Заголовок статьи: "{article.article_heading}"')
+            print(f'Тело статьи: "{article.article_body}"')
+
+
+        print(article)
 
 
 if __name__ == '__main__':
